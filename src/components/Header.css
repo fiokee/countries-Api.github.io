@@ -1,6 +1,10 @@
 .nav-header{
     display: flex;
     justify-content: space-between;
+    box-shadow: 5px 5px hsl(0, 5%, 89%);  
+}
+
+.nav-header h2{
     margin: 20px 50px;
 }
 

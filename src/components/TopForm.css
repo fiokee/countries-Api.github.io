@@ -1,0 +1,20 @@
+.country-search{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 20px;
+    padding: 40px;
+}
+
+input[type=text] {
+    width: 40vw;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('../assets/search.png');
+    background-position: 20px 20px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+  }
+
