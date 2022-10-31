@@ -12,9 +12,46 @@ input[type=text] {
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    background-image: url('../assets/search.png');
     background-position: 20px 20px; 
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
+    box-shadow: 3px 3px 5px 5px hsl(0, 3%, 89%);
   }
 
+  .search-icon{
+    position: absolute;
+    padding: 20px;
+    font-size: 25px;
+  }
+
+  .filter-religion{
+    border: none;
+    width: auto;
+    border-radius: 5%;
+    margin-left: 23px;
+    box-shadow: 3px 3px 5px 5px hsl(0, 3%, 89%);
+  }
+  .filter-religion h2{
+    font-size: 18px;
+    margin: auto;
+    padding: 20px;
+  }
+  .drop{
+    font-size: 25px;
+  }
+  @media only screen and (max-width: 600px) {
+    .country-search{
+        display: block;
+    }
+    .filter-religion{
+      width: fit-content;  
+      margin: 0;
+    }
+    input[type=text] {
+        width: 60vw;
+       
+      }
+  }
+  .select-country{
+
+  }

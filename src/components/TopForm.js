@@ -1,16 +1,20 @@
 import React from 'react';
 import './TopForm.css';
 import {AiOutlineSearch} from 'react-icons/ai';
+import {RiArrowDropDownLine} from 'react-icons/ri';
+
 
 export const TopForm = () => {
   return (
     <div className='country-search'>
-        <form>
+        <form className='search-form'>
         <AiOutlineSearch className='search-icon'/>
         <input type='text' name='search'placeholder='Search for a country...'></input>
         </form>
         <div className='select-country'>
-            <h2>Filter by Religion</h2>
+          <div className='filter-religion'>
+            <h2>Filter by Region <RiArrowDropDownLine className='drop'/></h2>
+          </div>
             <p>Africa</p>
             <p>America</p>
             <p>Asia</p>

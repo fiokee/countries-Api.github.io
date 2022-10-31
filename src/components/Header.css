@@ -7,4 +7,12 @@
 .nav-header h2{
     margin: 20px 50px;
 }
+.dark{
+    font-weight: 300;
+}
+@media only screen and (max-width: 600px) {
+    .nav-header h2{
+        margin: 5px 10px;
+    }   
+}
 
