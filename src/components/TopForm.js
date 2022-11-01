@@ -15,11 +15,14 @@ export const TopForm = () => {
           <div className='filter-religion'>
             <h2>Filter by Region <RiArrowDropDownLine className='drop'/></h2>
           </div>
+          <div>
+
             <p>Africa</p>
             <p>America</p>
             <p>Asia</p>
             <p>Europe</p>
             <p>Oceania</p>
+          </div>
         </div>
     </div>
   )
