@@ -4,6 +4,14 @@ import CountryImg from '../../assets/germany.png';
 
 
 export const Country = () => {
+  function fetchCountries(){
+    fetch('https://restcountries.com/v3.1/all').then(response =>{
+      return response.json()
+    }).then(data =>{
+      console.log(data)
+    });
+  }
+
   return (
     <div className='container'>
     <div className='card'>
@@ -13,6 +21,7 @@ export const Country = () => {
         <p>Region: <span>Europ</span></p>
         <p>Capital: <span>Berlin</span></p>
     </div>
+    <button onClick={fetchCountries}></button>
     </div>
   )
 }

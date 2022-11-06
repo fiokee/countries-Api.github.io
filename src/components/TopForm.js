@@ -15,8 +15,7 @@ export const TopForm = () => {
           <div className='filter-religion'>
             <h2>Filter by Region <RiArrowDropDownLine className='drop'/></h2>
           </div>
-          <div>
-
+          <div className='region-list'>
             <p>Africa</p>
             <p>America</p>
             <p>Asia</p>
