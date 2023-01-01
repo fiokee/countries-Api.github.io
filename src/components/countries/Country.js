@@ -1,34 +1,35 @@
-import React, {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import './Country.style.css';
 import CountryImg from '../../assets/germany.png';
 
 
-export const Country = () => {
-  // function fetchCountries(){
-  //   fetch('https://restcountries.com/v3.1/all').then(response =>{
-  //     return response.json()
-  //   }).then(data =>{
-  //     console.log(data)
-  //   });
-  // }
-
+export function Country(){
   const [countries, setCountries] = useState([])
-  useEffect(()=>{
-    fetch('https://restcountries.com/v3.1/all').then(response =>{
-      return response.json()
-    }).then(data =>{ console.log(data)})
-  },[])
+  
+  const fetchCountry = async () => {
+    const response = await fetch(`http://api.countrylayer.com/v2/all?access_key=${`17f78d3e4ae86f29f0d7f90820f40593`}`)
+    const data = await response.json()
+    setCountries(data)
+    console.log(data)
+  }
 
+  useEffect(() => {
+    fetchCountry()
+  }, [])
+ 
   return (
     <div className='container'>
-    <div className='card'>
+      {
+      countries.map(({name, capital, region })=>(
+    <div className='card' key={name}>
         <img src={CountryImg} alt='cont'></img>
-        <h1>Germany</h1>
-        <p>Population: <span>8989888</span></p>
-        <p>Region: <span>Europ</span></p>
-        <p>Capital: <span>Berlin</span></p>
+        <h1>{name}</h1>
+        <p>population: <span>8989888</span></p>
+        <p>{region}: <span>{region}</span></p>
+        <p>Capital: <span>{capital}</span></p>
     </div>
-    {/* <button onClick={fetchCountries}></button> */}
+    ))}
+    {/* <button onClick=""></button> */}
     </div>
   )
 }
