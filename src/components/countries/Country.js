@@ -23,7 +23,7 @@ export function Country(){
       setError(error.message)
     }
   }
-  //search for country by name 
+  //A search for country by name 
   const fetchCountryByName = async (countryName)=>{
     try{
       const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`)

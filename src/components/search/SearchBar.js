@@ -12,6 +12,7 @@ const SearchBar = ({onSearch})=>{
      }
     const handleChange =(event)=>{
         setSearchInput(event.target.value);
+        onSearch(searchInput);
         console.log(searchInput);
     }
     return(
@@ -22,7 +23,7 @@ const SearchBar = ({onSearch})=>{
         </form>
         <div className='select-country'>
           <div className='filter-religion'>
-            <h2>Filter by Region <RiArrowDropDownLine className='drop'/></h2>
+            <span>Filter by Region <RiArrowDropDownLine className='drop'/></span>
           </div>
           <div className='region-list'>
             <p>Africa</p>
