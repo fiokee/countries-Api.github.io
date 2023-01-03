@@ -1,13 +1,13 @@
 
 import { Country } from './components/countries/Country';
 import { Header } from './components/Header';
-import { TopForm } from './components/TopForm';
+import SearchBar from './components/search/SearchBar'
 
 function App() {
   return (
     <div className="App">
         <Header/>
-        <TopForm/>
+        {/* <SearchBar onSearch={fetchCountryByName}/> */}
         <Country/>
     </div>
   );
