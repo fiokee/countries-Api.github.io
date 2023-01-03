@@ -8,6 +8,7 @@ export function Country(){
   const [countries, setCountries] = useState([])
   const [error, setError] = useState()
 
+//making a call to the api to get some data and renders it
   const fetchCountry = async () => {
     try{
 
@@ -23,18 +24,20 @@ export function Country(){
     }
   }
   //search for country by name 
-const fetchCountryByName = async (countryName)=>{
-  try{
-    const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`)
-  if(!response.ok){
-    throw new Error(`Failed to fetch countries: ${response.statusText}`)
+  const fetchCountryByName = async (countryName)=>{
+    try{
+      const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`)
+    if(!response.ok){
+      throw new Error(`Failed to fetch countries: ${response.statusText}`)
+    }
+    const data = await response.json()
+      setCountries(data)
+    }catch(error){
+      setError(error.message)
+    }
   }
-  const data = await response.json()
-    setCountries(data)
-  }catch(error){
-    setError(error.message)
-  }
-}
+//end of search
+
   useEffect(() => {
     fetchCountry()
   }, [])

@@ -39,6 +39,10 @@ input[type=text] {
   .drop{
     font-size: 25px;
   }
+  ::placeholder{
+    color: black;
+    font-size: 1.3rem;
+  }
   @media only screen and (max-width: 600px) {
     .country-search{
         display: block;
