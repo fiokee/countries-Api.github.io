@@ -53,7 +53,7 @@ export function Country(){
         <h1>{country.name.common}</h1>
         <p>Population: <span>{country.population}</span></p>
         <p>Region: <span>{country.region}</span></p>
-        <p>Capital: <spn>{country.capital}</spn></p>
+        <p>Capital: <span>{country.capital}</span></p>
     </div>
       ))
       }
