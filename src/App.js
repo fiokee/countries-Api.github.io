@@ -5,11 +5,11 @@ import { Header } from './components/Header';
 function App() {
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path='/' element={<Country />}>
           
         </Route>
-      </Routes>
+      </Routes> */}
         <Header/>
         <Country/>
     </div>

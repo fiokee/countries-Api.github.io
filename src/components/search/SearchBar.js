@@ -6,6 +6,7 @@ import {RiArrowDropDownLine} from 'react-icons/ri';
 
 const SearchBar = ({onSearch})=>{
     const [searchInput, setSearchInput] = useState("");
+    
     const handleSubmit = (event)=>{
         event.preventDefault();
         onSearch(searchInput);
