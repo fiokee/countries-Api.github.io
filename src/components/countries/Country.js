@@ -5,50 +5,37 @@ import SearchBar from '../search/SearchBar';
 
 
 export function Country(){
-  const [countries, setCountries] = useState([])
+  const [countries, setCountries] = useState([]);
+  const [filterCountries, setFilterCountries] = useState([]);
   const [error, setError] = useState()
 
 //making a call to the api to get some data and renders it
   const fetchCountry = async () => {
     try{
-
-      const response = await fetch(`https://restcountries.com/v3.1/all`)
+      const response = await fetch(`https://restcountries.com/v3.1/all`);
       if(!response.ok){
         throw new Error(`Failed to fetch countries: ${response.statusText}`)
       }
       const data = await response.json()
       setCountries(data)
+      setFilterCountries(data);
       console.log(data)
     } catch (error){
       setError(error.message)
     }
   }
-  //A search for country by name 
-  const fetchCountryByName = async (countryName)=>{
-    try{
-      const response = await fetch(`https://restcountries.com/v3.1/name/${countryName}`)
-    if(!response.ok){
-      throw new Error(`Failed to fetch countries: ${response.statusText}`)
-    }
-    const data = await response.json()
-      setCountries(data)
-    }catch(error){
-      setError(error.message)
-    }
-  }
-//end of search
-
-  useEffect(() => {
-    fetchCountry()
-  }, [])
+  
+    useEffect(() => {
+      fetchCountry();
+    }, [])
  
   return (
     <Fragment>
-        <SearchBar onSearch={fetchCountryByName}/>
+        <SearchBar setFilterCountries ={setFilterCountries}/>
     <div className='container'>
       {
-      countries?.map(country=>(
-        <div className='card'>
+      filterCountries?.map(country=>(
+        <div className='card' key={country.cca3}>
         <img src={country.flags.png} alt='cont'></img>
         <h1>{country.name.common}</h1>
         <p>Population: <span>{country.population}</span></p>

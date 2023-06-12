@@ -1,6 +1,7 @@
 import {Routes, Route } from 'react-router-dom'
 import { Country } from './components/countries/Country';
 import { Header } from './components/Header';
+import SearchBar from './components/search/SearchBar';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         </Route>
       </Routes> */}
         <Header/>
-        <Country/>
+        <Country SearchBar={SearchBar}/>
     </div>
   );
 }

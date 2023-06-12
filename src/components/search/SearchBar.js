@@ -1,21 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './SearchBar.css';
 import {AiOutlineSearch} from 'react-icons/ai';
 import {RiArrowDropDownLine} from 'react-icons/ri';
+// import { Country } from "../countries/Country";
 
+const SearchBar = ({setFilterCountries})=>{
+  const [countries, setCountries] =useState([]);
+  const [searchInput, setSearchInput] = useState("");
+  const [selectedRegion, setSelectedRegion] = useState("");
 
-const SearchBar = ({onSearch})=>{
-    const [searchInput, setSearchInput] = useState("");
-    
-    const handleSubmit = (event)=>{
-        event.preventDefault();
-        onSearch(searchInput);
-     }
+  useEffect(()=>{
+    const fetchData = async()=>{
+      try {
+        const response = await fetch('https://restcountries.com/v3.1/all');
+        const data = await response.json();
+        setCountries(data);
+      
+      } catch (error) {
+        console.log('error fetching data', error);
+      }
+    }
+    fetchData();
+  },[])
+
+  //apply the search terms
+  useEffect(()=>{
+    const filtered = countries.filter(country =>
+      country.name.common.toLowerCase().includes(searchInput.toLowerCase()) &&
+      (selectedRegion === "" || country.region.toLowerCase() === selectedRegion.toLowerCase())
+    );
+      setFilterCountries(filtered)
+  }, [searchInput, countries, selectedRegion, setFilterCountries]);
+  
+const handleSubmit =(e)=>{
+  e.preventDefault();
+}
     const handleChange =(event)=>{
         setSearchInput(event.target.value);
-        onSearch(searchInput);
         console.log(searchInput);
     }
+
+    const handleRegionChange = (event) => {
+      setSelectedRegion(event.target.value);
+    };
     return(
         <div className='country-search'>
         <form className='search-form' onSubmit={handleSubmit}>
@@ -27,7 +54,7 @@ const SearchBar = ({onSearch})=>{
             <span>Filter by Region <RiArrowDropDownLine className='drop'/></span>
           </div>
           <div className='region-list'>
-            <p>Africa</p>
+            <p onClick={() => handleRegionChange("africa")}>Africa</p>
             <p>America</p>
             <p>Asia</p>
             <p>Europe</p>
