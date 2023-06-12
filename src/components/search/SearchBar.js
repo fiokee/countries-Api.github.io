@@ -30,7 +30,7 @@ const SearchBar = ({setFilterCountries})=>{
       (selectedRegion === "" || country.region.toLowerCase() === selectedRegion.toLowerCase())
     );
       setFilterCountries(filtered)
-  }, [searchInput, countries, selectedRegion, setFilterCountries]);
+  }, [searchInput, selectedRegion, countries,  setFilterCountries]);
   
 const handleSubmit =(e)=>{
   e.preventDefault();
@@ -41,7 +41,7 @@ const handleSubmit =(e)=>{
     }
 
     const handleRegionChange = (event) => {
-      setSelectedRegion(event.target.value);
+      setSelectedRegion(event);
     };
     return(
         <div className='country-search'>
@@ -54,11 +54,13 @@ const handleSubmit =(e)=>{
             <span>Filter by Region <RiArrowDropDownLine className='drop'/></span>
           </div>
           <div className='region-list'>
+            <p onClick={() => handleRegionChange("")}>All Region</p>
             <p onClick={() => handleRegionChange("africa")}>Africa</p>
-            <p>America</p>
-            <p>Asia</p>
-            <p>Europe</p>
-            <p>Oceania</p>
+            <p onClick={()=>handleRegionChange("americas")}>America</p>
+            <p onClick={()=> handleRegionChange("asia")}>Asia</p>
+            <p onClick={() => handleRegionChange("antarctic")}>Antarctic</p>
+            <p onClick={()=> handleRegionChange("europe")}>Europe</p>
+            <p onClick={()=> handleRegionChange("oceania")}>Oceania</p>
           </div>
         </div>
     </div>
