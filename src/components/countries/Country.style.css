@@ -11,6 +11,7 @@
     align-items: center;
     align-content: center;
     margin: auto;
+    padding-left: 40px;
 }
 .card{
     display: block;
@@ -52,8 +53,19 @@
 }
 
 
- /* @media screen and (max-width: 768px) {
-    .container{
-        width: 800px;
+ @media screen and (min-width: 603px) {
+    
+    .card{
+        width: 35%;
     }
-}  */
+} 
+
+@media screen and (min-width: 800px) {
+    
+    .card{
+        width: 25%;
+    }
+    .container{
+        align-items: center;    
+    }
+} 
