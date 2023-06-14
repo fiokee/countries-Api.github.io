@@ -49,19 +49,7 @@ input[type=text] {
     color: black;
     font-size: 1.3rem;
   }
-  @media only screen and (max-width: 600px) {
-    .country-search{
-        display: block;
-    }
-    .filter-religion{
-      width: fit-content;  
-      margin: 0;
-    }
-    input[type=text] {
-        width: 60vw;
-       
-      }
-  }
+  
 .region-list{
   position: absolute;
   width: 280px;
@@ -79,4 +67,30 @@ input[type=text] {
     display: block;
     cursor: pointer;
     
+  }
+
+  @media only screen and (max-width: 600px) {
+    .country-search{
+        display: block;
+    }
+    .filter-religion{
+      width: fit-content;  
+      margin: 0;
+    }
+    .filter-religion{
+      margin-top: 12px;
+    }
+    input[type=text] {
+        width: 60vw;
+       
+      }
+      .region-list{
+        margin-top: 45px;
+      }
+  }
+
+  @media screen and (max-width: 360px) {
+    .region-list p{
+      margin-left: 60px;
+    }
   }

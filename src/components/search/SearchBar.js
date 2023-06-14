@@ -8,7 +8,7 @@ const SearchBar = ({setFilterCountries})=>{
   const [countries, setCountries] =useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
-  const [toggleIcon, setToggleIcon] = useState(true);
+  const [toggleIcon, setToggleIcon] = useState(false);
 
   useEffect(()=>{
     const fetchData = async()=>{

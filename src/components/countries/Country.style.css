@@ -13,6 +13,19 @@
     margin: auto;
     padding-left: 40px;
 }
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    align-items: center;
+  }
+
 .card{
     display: block;
     margin-right:  40px;
