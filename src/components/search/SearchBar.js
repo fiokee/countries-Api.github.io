@@ -8,6 +8,7 @@ const SearchBar = ({setFilterCountries})=>{
   const [countries, setCountries] =useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
+  const [toggleIcon, setToggleIcon] = useState(true);
 
   useEffect(()=>{
     const fetchData = async()=>{
@@ -46,13 +47,16 @@ const handleSubmit =(e)=>{
     return(
         <div className='country-search'>
         <form className='search-form' onSubmit={handleSubmit}>
-        <AiOutlineSearch className='search-icon'/>
+        {/* <AiOutlineSearch className='search-icon'/> */}
         <input type='text' name='search'placeholder='Search for a country...' value={searchInput} onChange={handleChange}></input>
         </form>
         <div className='select-country'>
-          <div className='filter-religion'>
+          <div className='filter-religion' onClick={()=>setToggleIcon(!toggleIcon)}>
             <span>Filter by Region <RiArrowDropDownLine className='drop'/></span>
           </div>
+          {
+            toggleIcon &&(
+
           <div className='region-list'>
             <p onClick={() => handleRegionChange("")}>All Region</p>
             <p onClick={() => handleRegionChange("africa")}>Africa</p>
@@ -62,6 +66,8 @@ const handleSubmit =(e)=>{
             <p onClick={()=> handleRegionChange("europe")}>Europe</p>
             <p onClick={()=> handleRegionChange("oceania")}>Oceania</p>
           </div>
+            )
+          }
         </div>
     </div>
     )
