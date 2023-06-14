@@ -37,7 +37,7 @@ export function Country(){
         <div className='container'>
       {isLoading ? (
         <div className='loader'>Loading...</div> // Display the loader when isLoading is true
-      ) : (
+      ): (
         filterCountries?.map((country) => (
           <div className='card' key={country.cca3}>
             <img src={country.flags.png} alt='cont'></img>
